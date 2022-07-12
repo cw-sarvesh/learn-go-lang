@@ -1,8 +1,10 @@
 /* Package declaration*/
 package main
 /* preprocessor*/
-import "fmt"
-import "math"
+import (
+	"fmt"
+	"math"
+)
 func main() {
 	var a, b, c = 1, 1, "sarvesh"
 	var x float64 = 20.0
@@ -20,6 +22,11 @@ func main() {
 	forLoop()
 	whileInGoIsFor()
 	sqrt(4)
+	fmt.Println(
+		pow(3, 2, 10),
+		pow(3, 3, 20),
+	)
+	fmt.Println(Sqrt(9))
 }
 // Multiple Return Function
 func two(greet, name string) (string, string) {
@@ -49,4 +56,21 @@ func sqrt(x float64) string {
 		return sqrt(-x) + "i"
 	}
 	return fmt.Sprint(math.Sqrt(x))
+}
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	} else {
+		fmt.Printf("%g >= %g\n", v, lim)
+	}
+	// can't use v here, though
+	return lim
+}
+func Sqrt(x float64) float64 {
+	z := 1.0
+	for i := 1; i <= 10; i++ {
+		z -= (z*z - x) / (2 * z)
+		fmt.Printf("Iteration %v, value = %v\n", i, z)
+	}
+	return z
 }
