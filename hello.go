@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"runtime"
 )
 func main() {
 	var a, b, c = 1, 1, "sarvesh"
@@ -27,6 +28,7 @@ func main() {
 		pow(3, 3, 20),
 	)
 	fmt.Println(Sqrt(9))
+	switchCondition()
 }
 // Multiple Return Function
 func two(greet, name string) (string, string) {
@@ -68,9 +70,25 @@ func pow(x, n, lim float64) float64 {
 }
 func Sqrt(x float64) float64 {
 	z := 1.0
-	for i := 1; i <= 10; i++ {
-		z -= (z*z - x) / (2 * z)
-		fmt.Printf("Iteration %v, value = %v\n", i, z)
+	var t float64
+	for {
+		z, t = z-(z*z-x)/(2*z), z
+		if math.Abs(t-z) < 1e-6 {
+			break
+		}
 	}
 	return z
+}
+func switchCondition() {
+	fmt.Print("Go runs on ")
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X.")
+	case "linux":
+		fmt.Println("Linux.")
+	default:
+		// freebsd, openbsd,
+		// plan9, windows...
+		fmt.Printf("%s.\n", os)
+	}
 }
