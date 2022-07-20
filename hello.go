@@ -29,6 +29,7 @@ func main() {
 	)
 	fmt.Println(Sqrt(9))
 	switchCondition()
+	arrayInGo()
 }
 // Multiple Return Function
 func two(greet, name string) (string, string) {
@@ -91,4 +92,11 @@ func switchCondition() {
 		// plan9, windows...
 		fmt.Printf("%s.\n", os)
 	}
+}
+func arrayInGo() {
+	var fullName [2]string
+	fullName[0] = "Sarvesh"
+	fullName[1] = "Mishra"
+	primes := [4]int{2, 3, 5, 7}
+	fmt.Println(primes)
 }
