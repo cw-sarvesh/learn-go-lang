@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"math"
 	"runtime"
+
+	service "github.com/cw-sarvesh/service"
 )
 func main() {
 	var a, b, c = 1, 1, "sarvesh"
@@ -30,6 +32,7 @@ func main() {
 	fmt.Println(Sqrt(9))
 	switchCondition()
 	arrayInGo()
+	service.Hello()
 }
 // Multiple Return Function
 func two(greet, name string) (string, string) {
