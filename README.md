@@ -10,12 +10,22 @@ go mod init <modulename>
 
 Then go to main.go file and add path same as your directory. 
 
-Folder structure
+To generate folder tree structure in windows run in root dir
 
 ```
-|service
-|-- service.go
-|main.go
+tree /f > tree.txt
+```
+
+Folder structure
+
+```bash
+│   go.mod
+│   main.go
+│   README.md
+│   tree.txt
+│   
+└───service
+        service.go
 ```
 
 in main.go, import like this
